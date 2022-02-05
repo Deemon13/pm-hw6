@@ -1,0 +1,53 @@
+.container {
+  position: relative;
+  width: 768px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.green {
+  background-color: green;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.blue {
+  background-color: blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.target-red {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.target-green {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.target-blue {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
