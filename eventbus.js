@@ -9,7 +9,19 @@ class EventBus {
    * @param {eventListener} listener - callback
    */
   on(event, listener) {
-    this.handlers.push({ event, listener });
+    try {
+      if (arguments.length < 2) {
+        throw new Error(`There must be two parameters for subscribing`);
+      }
+
+      if (typeof event !== "string") {
+        throw new Error(`Wrong type of event ${event}, expected a string`);
+      }
+
+      this.handlers.push({ event, listener });
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   /**
@@ -18,9 +30,22 @@ class EventBus {
    * @param {Object} data - any data
    */
   emit(event, data) {
-    this.handlers
-      .filter((el) => el.event === event)
-      .forEach((el) => el.listener(data));
+    try {
+      if (arguments.length < 2) {
+        throw new Error(`There must be two parameters for subscribing`);
+      }
+      if (typeof event !== "string") {
+        throw new Error(`Wrong type of event ${event}, expected a string`);
+      }
+      if (!(data instanceof Object)) {
+        throw new Error(`Wrong type of event ${data}, expected a object`);
+      }
+      this.handlers
+        .filter((el) => el.event === event)
+        .forEach((el) => el.listener(data));
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 }
 
